@@ -15,11 +15,6 @@ const PhonebookSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   number: Yup.string().required('Required'),
-  // lastName: Yup.string()
-  //   .min(2, 'Too Short!')
-  //   .max(50, 'Too Long!')
-  //   .required('Required'),
-  // email: Yup.string().email('Invalid email').required('Required'),
 });
 
 export const PhonebookForm = ({ onSubmit }) => {
@@ -28,7 +23,6 @@ export const PhonebookForm = ({ onSubmit }) => {
       initialValues={{ name: '', number: '' }}
       validationSchema={PhonebookSchema}
       onSubmit={(values, actions) => {
-        console.log(values);
         onSubmit({ ...values, id: nanoid() });
         actions.resetForm();
       }}
