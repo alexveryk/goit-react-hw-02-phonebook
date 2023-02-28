@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 
 export const PhoneForm = styled(Form)`
-  width: 400px;
   border: 1px solid #4e504e;
   display: flex;
   flex-direction: column;
