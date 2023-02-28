@@ -18,7 +18,7 @@ export const FormLabel = styled.label`
 `;
 
 export const FormField = styled(Field)`
-  height: 20px;
+  height: 28px;
 `;
 
 export const BtnForm = styled.button`
