@@ -8,6 +8,7 @@ import {
 } from './PhoneForm.styled';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 const PhonebookSchema = Yup.object().shape({
   name: Yup.string()
@@ -54,4 +55,8 @@ export const PhonebookForm = ({ onSubmit }) => {
       </PhoneForm>
     </Formik>
   );
+};
+
+PhonebookForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
