@@ -14,6 +14,12 @@ export class App extends Component {
     filter: '',
   };
 
+  deleteContacts = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
   handleIputСhange = event => {
     this.setState({
       filter: event.currentTarget.value,
@@ -28,15 +34,15 @@ export class App extends Component {
     );
   };
 
-  toFindDuplicates = newname => {
-    this.state.contacts.some(el => el.name === newname);
-  };
-
   addContacts = newContacts => {
     this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, newContacts],
-      };
+      if (this.state.contacts.some(el => el.name === newContacts.name)) {
+        alert('alert');
+      } else {
+        return {
+          contacts: [...prevState.contacts, newContacts],
+        };
+      }
     });
   };
 
@@ -52,7 +58,7 @@ export class App extends Component {
           onChange={this.handleIputСhange}
           filterValue={this.state.filter}
         />
-        <ContactLst visibleName={visibleName} />
+        <ContactLst visibleName={visibleName} onDelete={this.deleteContacts} />
       </>
     );
   }
